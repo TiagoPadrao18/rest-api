@@ -15,7 +15,7 @@ public class UserController {
 
     private final UserService service;
 
-    @GetMapping
+    @GetMapping("/get")
     public List<User> getUsers(){
         return service.getUsers();
     }
@@ -25,8 +25,15 @@ public class UserController {
         return service.addUser(user);
     }
 
-    @GetMapping("/{userId}/{name}")
-    public User getUserById(@PathVariable final String name, @PathVariable final Long userId){
+    @GetMapping("/{userId}")
+    public User getUserById(@PathVariable final Long userId){
         return service.getUserById(userId);
     }
+
+
+    @DeleteMapping("/{userId}")
+    public void deleteUserById(@PathVariable final Long userId) {
+        service.deleteUserById(userId);
+    }
+
 }

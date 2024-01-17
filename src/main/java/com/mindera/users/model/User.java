@@ -15,4 +15,11 @@ public class User {
     private String name;
     private String password;
 
+    @Override
+    public String toString() {
+        return
+                 id +"," + name + ","+
+                password ;
+
+    }
 }
